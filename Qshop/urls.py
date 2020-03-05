@@ -28,4 +28,5 @@ urlpatterns = [
     path('goods_list/',goods_list),
     path('goods_detail/',goods_detail),
     path('place_order/',place_order),
+    path("cart/", cart),
 ]

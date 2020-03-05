@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import hashlib
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,JsonResponse
 from Seller.models import *
 from .models import *
 # Create your views here.
@@ -130,7 +130,7 @@ def goods_detail(request):
 ##生成订单号
 def get_order_no():
     import uuid
-    order_num = str(uuid.uuid4())
+    order_num = str(uuid.uuid4()).replace("-","")
     return order_num
 @loginValid
 def place_order(request):
@@ -170,4 +170,51 @@ def place_order(request):
 def gettest(request):
     from django.http import HttpResponse
 
+from Qshop.settings import alipay
+def alipay_order(request):
+    payorder_id = request.GET.get("payorder_id")
+    payorder = PayOrder.objects.get(id = payorder_id)
+    ##实例一个订单
+    order_string = alipay.api_alipay_trade_page_pay(
+        subject="每日生鲜",  ##主题
+        out_trade_no=payorder.order_number,  ##订单号
+        total_amount= str(int(payorder.order_total) + 10),  ##交易金额  字符串
+        return_url= "http://127.0.0.1:8000/buyer/pay_aliresult/",  ##回调的地址
+        notify_url=None,  ##通知
+    )
+    ##返回支付宝支付的url
+    result = "https://openapi.alipaydev.com/gateway.do?" + order_string
+    return HttpResponseRedirect(result)
 
+
+##接收是否支付成功的结果
+def pay_aliresult(request):
+    out_trade_no = request.GET.get("out_trade_no")
+
+    payorder = PayOrder.objects.get(order_number=out_trade_no)
+    payorder.order_status = 2
+    payorder.save()
+
+    return render(request,"buyer/pay_result.html",locals())
+
+
+def cart(request):
+
+    return render(request,"buyer/cart.html")
+
+def add_cart(request):
+    result = {"code":10000,"msg":"添加购物车成功"}
+    user_id = request.COOKIES.get("buy_userid")
+    data = request.POST
+    print(data)
+    goods_id = data.get("goods_id")
+    ##添加购物车
+    goods = Goods.objects.get(id=goods_id)
+    cart = Cart()
+    cart.goods = goods
+    cart.goods_number = 1
+    cart.goods_total = goods.goods_price
+    cart.cart_user_id = user_id
+    cart.save()
+
+    return JsonResponse(result)
