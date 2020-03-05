@@ -208,13 +208,25 @@ def add_cart(request):
     data = request.POST
     print(data)
     goods_id = data.get("goods_id")
-    ##添加购物车
+    goods_count = data.get("goods_count",1)   ##商品详情页   指定默认值1
     goods = Goods.objects.get(id=goods_id)
-    cart = Cart()
-    cart.goods = goods
-    cart.goods_number = 1
-    cart.goods_total = goods.goods_price
-    cart.cart_user_id = user_id
-    cart.save()
+    ##判断购物车中是否已经存在该商品
+
+    cart = Cart.objects.filter(goods=goods).first()
+    if cart:
+        cart.goods_number += goods_count
+        cart.goods_total += goods.goods_price * goods.goods_count
+    else:
+        ##添加购物车
+        cart = Cart()
+        cart.goods = goods
+        cart.goods_number = goods_count
+        cart.goods_total = int(goods_count) * goods.goods_price
+        cart.cart_user_id = user_id
+    try:
+        cart.save()
+        result = {"code":10000,"msg":"添加购物车成功"}
+    except:
+        result = {"code": 10001,"msg": "添加购物车失败"}
 
     return JsonResponse(result)
