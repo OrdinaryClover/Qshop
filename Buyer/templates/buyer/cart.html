@@ -9,45 +9,89 @@
 		<li class="col05">小计</li>
 		<li class="col06">操作</li>
 	</ul>
+    {% for one in cart %}
 	<ul class="cart_list_td clearfix">
-		<li class="col01"><input type="checkbox" name="" checked></li>
-		<li class="col02"><img src="/static/buyer/images/goods/goods012.jpg"></li>
-		<li class="col03">奇异果<br><em>25.80元/500g</em></li>
+		<li class="col01"><input type="checkbox" name="" checked class="goods_box"></li>
+		<li class="col02"><img src="/static/{{ one.goods.goods_picture }}"></li>
+		<li class="col03">{{ one.goods.goods_name }}<br><em>{{ one.goods.goods_price }}元/500g</em></li>
 		<li class="col04">500g</li>
-		<li class="col05">25.80元</li>
+		<li class="col05">{{ one.goods.goods_price }}元</li>
 		<li class="col06">
 			<div class="num_add">
 				<a href="javascript:;" class="add fl">+</a>
-				<input type="text" class="num_show fl" value="1">
+				<input type="text" class="num_show fl" value="{{ one.goods_number }}">
 				<a href="javascript:;" class="minus fl">-</a>
 			</div>
 		</li>
-		<li class="col07">25.80元</li>
+		<li class="col07">{{ one.goods_total }}元</li>
 		<li class="col08"><a href="javascript:;">删除</a></li>
 	</ul>
-
-	<ul class="cart_list_td clearfix">
-		<li class="col01"><input type="checkbox" name="" checked></li>
-		<li class="col02"><img src="/static/buyer/images/goods/goods003.jpg"></li>
-		<li class="col03">大兴大棚草莓<br><em>16.80元/500g</em></li>
-		<li class="col04">500g</li>
-		<li class="col05">16.80元</li>
-		<li class="col06">
-			<div class="num_add">
-				<a href="javascript:;" class="add fl">+</a>
-				<input type="text" class="num_show fl" value="1">
-				<a href="javascript:;" class="minus fl">-</a>
-			</div>
-		</li>
-		<li class="col07">16.80元</li>
-		<li class="col08"><a href="javascript:;">删除</a></li>
-	</ul>
-
-
+    {% endfor %}
 	<ul class="settlements">
-		<li class="col01"><input type="checkbox" name="" checked=""></li>
+		<li class="col01"><input type="checkbox" name="" checked="" id="check_box"></li>
 		<li class="col02">全选</li>
-		<li class="col03">合计(不含运费)：<span>¥</span><em>42.60</em><br>共计<b>2</b>件商品</li>
+		<li class="col03">合计(不含运费)：<span>¥</span><em id="total_money">{{ all_total.sum_total }}</em><br >共计<b id="total_num">{{ all_total.sum_number }}</b>件商品</li>
 		<li class="col04"><a href="place_order.html">去结算</a></li>
 	</ul>
 {% endblock %}
+
+{% block script %}
+    <script>
+        $("#check_box").click(
+            function () {
+                //input check_box
+                //如果有全选
+                if (this.checked){
+                    $(".goods_box").prop("checked",true)
+                }
+                else {
+                    $(".goods_box").prop("checked",false)
+                }
+                // 反之全不选
+                add()
+            }
+
+        );
+
+    $(".goods_box").click(
+        function () {
+            //单选
+            // 获取所有的方框数量，看看选中的数量是不是全部
+            var len1 = $(".goods_box").length;
+
+            var len2 = $(".goods_box:checked").length;
+
+            if(len1 == len2){
+                $("#check_box").prop("checked",true)
+            }
+            else {
+                $("#check_box").prop("checked",false)
+            }
+            add()
+        }
+    );
+
+
+    function add() {
+        //方法实现单选全选之后计算出来商品的件数和商品的小计
+        //获取到每一个没选中的商品的价格 以及数量
+        //进行计算  总的价格和数量
+        var mydict = {"num":0,"total":0}
+        $(".goods_box").each(
+            function () {
+                if (this.checked){
+                    //寻找被选中的数量以及价格
+                    var number = parseInt($(this).parents(".cart_list_td").find(".num_show").val());
+                    var money = parseFloat($(this).parents(".cart_list_td").find(".col07").text());
+                    mydict.num += number;
+                    mydict.total += money;
+                }
+            }
+        )
+
+        $("#total_money").text(mydict.total);
+        $("#total_num").text(mydict.num);
+    }
+    </script>
+{% endblock %}
+

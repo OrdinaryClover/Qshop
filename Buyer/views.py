@@ -197,11 +197,23 @@ def pay_aliresult(request):
 
     return render(request,"buyer/pay_result.html",locals())
 
-
+from django.db.models import Sum
+@loginValid
 def cart(request):
+    ##查看登录用户的购物车内容
+    user_id = request.COOKIES.get("buy_userid")
+    # cart = Cart.objects.filter(cart_user_id=int(user_id)).all()
+    cart = Cart.objects.filter(cart_user=LoginUser.objects.get(id=int(user_id))).all()
 
-    return render(request,"buyer/cart.html")
+    ##获取商品的数量之和
+    ##聚合
+    ##all_total 字典  key:value
+    all_total = cart.aggregate(sum_total = Sum("goods_total"),sum_number = Sum("goods_number"))
 
+
+    return render(request,"buyer/cart.html",locals())
+
+@loginValid
 def add_cart(request):
     result = {"code":10000,"msg":"添加购物车成功"}
     user_id = request.COOKIES.get("buy_userid")
