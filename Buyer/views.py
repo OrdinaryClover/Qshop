@@ -242,3 +242,84 @@ def add_cart(request):
         result = {"code": 10001,"msg": "添加购物车失败"}
 
     return JsonResponse(result)
+
+
+def change_cart(request):
+    result = {"code":10001,"msg":"操作失败"}
+    ##修改购物车的数量，以及小计
+    # 购物车的id   类型：/ 加法/减法
+    ##并且存储的到数据库
+    data = request.POST
+    cart_id = request.POST.get("cart_id")
+    js_type = request.POST.get("js_type")
+    print(cart_id)
+    if cart_id and js_type:
+        cart = Cart.objects.filter(id=int(cart_id)).first()
+        if cart:
+            if js_type == "add":
+                cart.goods_number += 1
+                cart.goods_total += cart.goods.goods_price
+            elif js_type == "reduce":
+                if cart.goods_number > 1:
+                    cart.goods_number -= 1
+                    cart.goods_total -= cart.goods.goods_price
+                else:
+                    pass
+            else:
+                Cart.objects.filter(cart_id=int(cart_id)).delete()
+            try:
+                cart.save()
+                result = {"code": 10000, "msg": "操作成功","data": {"goods_number": cart.goods_number, "goods_total": cart.goods_total}}
+            except:
+                result = {"code":10001,"msg":"操作失败"}
+        else:
+            result = {"code": 10002, "msg": "商品不存在"}
+    return JsonResponse(result)
+
+##购物车去结算
+@loginValid
+def cart_place_order(request):
+    print(request.POST)
+    data = request.POST
+    res = []
+    for key,value in data.items():
+        # print(key)
+        # print(value)
+        if key.startswith("cart_id"):
+            res.append(value)
+    print(res)
+    #将购物车中选中的商品生成订单
+    user_id = request.COOKIES.get("buy_userid")
+
+    ##payorder
+    payorder = PayOrder()
+    payorder.order_number = get_order_no()
+    payorder.order_status = 1  ##未支付
+    payorder.order_total = 0   ##订单总价 = 订单详情中小计的和
+    payorder.order_user_id = int(user_id)
+    payorder.save()
+
+    ##生成订单详情
+    for one in res:
+        cart = Cart.objects.filter(id = one).first()
+        order_info = OrderInofo()
+        order_info.order = payorder
+        order_info.goods = cart.goods
+        order_info.goods_price = cart.goods.goods_price
+        ##店铺的信息 通过商品寻找店铺
+        order_info.store = cart.goods.goods_store
+        order_info.goods_count = cart.goods_number
+        order_info.goods_total_price = cart.goods_total
+        order_info.save()
+        ##保存订单后从购物车中删除
+        cart.delete()
+
+    yunfei = 10
+    payorder_total = payorder.orderinofo_set.aggregate(sum_total = Sum("goods_total_price")).get("sum_total")
+    payorder.order_total = payorder_total
+    payorder.save()
+
+    add_yunfei = yunfei + payorder_total
+    return render(request,"buyer/place_order.html",locals())
+
+
