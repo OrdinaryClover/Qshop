@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa08aeb4-1864-4e9b-8a85-1e3c87bce012" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Seller/migrations/0010_validcode.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sdk/send163.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Qshop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Qshop/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Seller/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Seller/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Seller/templates/seller/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/Seller/templates/seller/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Seller/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Seller/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Seller/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Seller/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +15,30 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Seller/templates/seller/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="105" column="7" selection-start-line="105" selection-start-column="7" selection-end-line="105" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Seller/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="36" column="52" lean-forward="true" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+                <element signature="e#257#357#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -115,8 +132,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="251" />
-    <option name="y" value="131" />
+    <option name="x" value="43" />
+    <option name="y" value="71" />
     <option name="width" value="1284" />
     <option name="height" value="863" />
   </component>
@@ -153,6 +170,13 @@
               <item name="Qshop" type="462c0819:PsiDirectoryNode" />
               <item name="Seller" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
+              <item name="Seller" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="seller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
@@ -378,7 +402,7 @@
       <workItem from="1583550305873" duration="20064000" />
       <workItem from="1583636777376" duration="16107000" />
       <workItem from="1583722895973" duration="3345000" />
-      <workItem from="1583813366828" duration="11265000" />
+      <workItem from="1583813366828" duration="11604000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1583403983388</created>
@@ -408,23 +432,31 @@
       <option name="project" value="LOCAL" />
       <updated>1583729859420</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="3.4完结版">
+      <created>1583836384287</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1583836384287</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169340000" />
+    <option name="totallyTimeSpent" value="169679000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="587" y="97" width="1027" height="690" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.113270774" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.32610938" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.49543795" weight="0.13456091" />
+      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.49543795" visible="true" weight="0.1702509" />
       <window_info anchor="bottom" id="manage.py@Qshop" order="2" weight="0.47733712" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="4" sideWeight="0.4772118" visible="true" weight="0.54815865" />
+      <window_info anchor="bottom" id="Version Control" order="4" sideWeight="0.4772118" weight="0.3611898" />
       <window_info anchor="bottom" id="Python Console" order="5" weight="0.32553956" />
       <window_info anchor="bottom" id="Terminal" order="6" weight="0.6888489" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5227882" side_tool="true" weight="0.61898017" />
@@ -513,7 +545,8 @@
     <MESSAGE value="3.2.5" />
     <MESSAGE value="3.2完结版" />
     <MESSAGE value="3.3完结版" />
-    <option name="LAST_COMMIT_MESSAGE" value="3.3完结版" />
+    <MESSAGE value="3.4完结版" />
+    <option name="LAST_COMMIT_MESSAGE" value="3.4完结版" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -813,13 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Seller/templates/seller/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
-          <caret line="105" column="7" selection-start-line="105" selection-start-column="7" selection-end-line="105" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Seller/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -844,23 +870,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Seller/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-            <element signature="e#257#357#0" />
-            <element signature="e#6204#7018#0" />
-            <element signature="e#7049#7701#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Seller/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="533">
           <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Seller/templates/seller/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="105" column="7" selection-start-line="105" selection-start-column="7" selection-end-line="105" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Seller/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="36" column="52" lean-forward="true" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#257#357#0" />
+          </folding>
         </state>
       </provider>
     </entry>

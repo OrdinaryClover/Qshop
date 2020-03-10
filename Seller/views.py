@@ -26,6 +26,7 @@ def loginValid(func):
             return HttpResponseRedirect("/seller/login/")
     return inner
 ##注册
+import datetime
 def register(request):
     email = request.POST.get("email")
     password = request.POST.get("password")
@@ -35,8 +36,11 @@ def register(request):
         if code:
             computer_code = ValidCode.objects.filter(user=email).order_by("-create_time").first()
             if code == computer_code.code:
-                LoginUser.objects.create(email=email,password=setPassword(password),user_type=0)
-                return HttpResponseRedirect("/seller/login/")
+                if int((datetime.datetime.now() -  computer_code.create_time).total_seconds())<300:
+                    LoginUser.objects.create(email=email,password=setPassword(password),user_type=0)
+                    return HttpResponseRedirect("/seller/login/")
+                else:
+                    message = "验证码失效，请重新获取"
             else:
                 message = "验证码错误请重新输入"
         else:
