@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fa08aeb4-1864-4e9b-8a85-1e3c87bce012" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Seller/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Seller/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Qshop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Qshop/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,15 +25,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Seller/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="36" column="52" lean-forward="true" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+            <state relative-caret-position="-414">
+              <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
                 <element signature="e#257#357#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Qshop/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="55">
+              <caret line="42" column="15" lean-forward="true" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -121,21 +130,21 @@
         <option value="$PROJECT_DIR$/Seller/models.py" />
         <option value="$PROJECT_DIR$/sdk/sendDD.py" />
         <option value="$PROJECT_DIR$/sdk/send163.py" />
-        <option value="$PROJECT_DIR$/Qshop/settings.py" />
         <option value="$PROJECT_DIR$/Seller/templates/seller/register.html" />
         <option value="$PROJECT_DIR$/Seller/urls.py" />
         <option value="$PROJECT_DIR$/Seller/templates/seller/11.py" />
         <option value="$PROJECT_DIR$/Seller/templates/test.py" />
         <option value="$PROJECT_DIR$/Seller/test.py" />
         <option value="$PROJECT_DIR$/Seller/views.py" />
+        <option value="$PROJECT_DIR$/Qshop/settings.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="43" />
-    <option name="y" value="71" />
-    <option name="width" value="1284" />
-    <option name="height" value="863" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="493" />
+    <option name="y" value="30" />
+    <option name="width" value="1658" />
+    <option name="height" value="992" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -149,39 +158,6 @@
             <path>
               <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
               <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-              <item name="sdk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-              <item name="Seller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-              <item name="Seller" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-              <item name="Seller" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="seller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -227,7 +203,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Django server.Qshop">
     <configuration name="alipaydemo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Qshop" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -402,7 +378,7 @@
       <workItem from="1583550305873" duration="20064000" />
       <workItem from="1583636777376" duration="16107000" />
       <workItem from="1583722895973" duration="3345000" />
-      <workItem from="1583813366828" duration="11604000" />
+      <workItem from="1583813366828" duration="13201000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1583403983388</created>
@@ -439,26 +415,32 @@
       <option name="project" value="LOCAL" />
       <updated>1583836384287</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="3.4完结版">
+      <created>1583836942303</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1583836942303</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169679000" />
+    <option name="totallyTimeSpent" value="171276000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="587" y="97" width="1027" height="690" extended-state="0" />
-    <editor active="true" />
+    <frame x="534" y="0" width="1326" height="830" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.32610938" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17902209" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.49543795" visible="true" weight="0.1702509" />
-      <window_info anchor="bottom" id="manage.py@Qshop" order="2" weight="0.47733712" />
+      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.49543795" weight="0.8512748" />
+      <window_info anchor="bottom" id="manage.py@Qshop" order="2" weight="0.47707736" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="4" sideWeight="0.4772118" weight="0.3611898" />
-      <window_info anchor="bottom" id="Python Console" order="5" weight="0.32553956" />
-      <window_info anchor="bottom" id="Terminal" order="6" weight="0.6888489" />
+      <window_info anchor="bottom" id="Version Control" order="4" sideWeight="0.4772118" weight="0.39426523" />
+      <window_info anchor="bottom" id="Python Console" order="5" weight="0.6790831" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="6" visible="true" weight="0.6876791" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5227882" side_tool="true" weight="0.61898017" />
       <window_info anchor="bottom" id="Message" order="8" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.63212436" />
@@ -550,6 +532,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Seller/views.py</url>
+          <line>26</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -745,13 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Qshop/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="126" column="15" lean-forward="true" selection-start-line="126" selection-start-column="15" selection-end-line="126" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Seller/templates/seller/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-30">
@@ -886,12 +868,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Seller/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="36" column="52" lean-forward="true" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+        <state relative-caret-position="-414">
+          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
             <element signature="e#257#357#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Qshop/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="42" column="15" lean-forward="true" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="15" />
         </state>
       </provider>
     </entry>

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Buyer',
     'Buyer.templates',
     'Seller',
+    'djcelery',
 ]
 
 MIDDLEWARE = [
