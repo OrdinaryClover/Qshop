@@ -44,13 +44,21 @@
                     <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="请输入密码">
                   </div>
                   <div class="col-sm-6">
-                    <input type="password" name="repassword" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="请在此输入密码">
+                    <input type="password" name="repassword" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="请再次输入密码">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" name="code" class="form-control form-control-user" id="exampleInputuser_code" placeholder="请输入验证码">
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="button" class="btn btn-facebook btn-user btn-block" id="get_code" value="获取验证码">
                   </div>
                 </div>
 {#                <a href="login.html" class="btn btn-primary btn-user btn-block">#}
 {#                  注册#}
 {#                </a>#}
-                  <input type="submit" class="btn btn-google btn-user btn-block" value="注册">
+                  <input type="submit" class="btn btn-google btn-user btn-block" id="check_code" value="注册">
                 <hr>
               </form>
                 <span>{{ message }}</span>
@@ -78,6 +86,25 @@
 
   <!-- Custom scripts for all pages-->
   <script src="/static/seller/js/sb-admin-2.min.js"></script>
+  <script>
+      $("#get_code").click(
+          function () {
+              var email = $("#exampleInputEmail").val();
+              $.ajax({
+                  url:"/seller/get_code/?email=" + email,
+                  type:"get",
+                  data:"",
+                  success:function (data) {
+                      console.log(data)
+                  },
+                  error:function (error) {
+                      console.log(error)
+                  }
+              })
+
+          }
+      )
+  </script>
 
 </body>
 

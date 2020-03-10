@@ -27,16 +27,26 @@ def loginValid(func):
     return inner
 ##注册
 def register(request):
-    print(request.POST)
     email = request.POST.get("email")
     password = request.POST.get("password")
     repassword = request.POST.get("repassword")
+    code = request.POST.get("code")
     if email and password and repassword:
-        LoginUser.objects.create(email=email,password=setPassword(password),user_type=0)
-        return HttpResponseRedirect("/seller/login/")
+        if code:
+            computer_code = ValidCode.objects.filter(user=email).order_by("-create_time").first()
+            if code == computer_code.code:
+                LoginUser.objects.create(email=email,password=setPassword(password),user_type=0)
+                return HttpResponseRedirect("/seller/login/")
+            else:
+                message = "验证码错误请重新输入"
+        else:
+            message = "请输入验证码"
     else:
         message = "请输入账号密码"
     return render(request,"seller/register.html",locals())
+
+
+
 ##登录
 def login(request):
     print(request.POST)
@@ -210,3 +220,31 @@ def add_label(request):
     GoodsType.objects.create(type_label="速冻食品",type_description="速冻食品",type_picture="img/banner06.jpg")
 
     return HttpResponse("添加成功")
+
+from sdk.send163 import sendQQ_Email
+def get_code(request):
+    result = {"code":10000,"msg":"验证码已发送,注意查收"}
+    ##发送验证码
+    email = request.GET.get("email")
+    user_email = ValidCode.objects.create()
+    print(email,user_email)
+    code = random.randint(10000,99999)
+    params = {
+        "content":"您的验证码为:{},请注意邮箱进行查收".format(code),
+        "recver": email,
+    }
+    try:
+        # sendQQ_Email(params)
+        ##存储到数据库
+        user_email.user = "{}".format(email)
+        user_email.code = "{}".format(code)
+        user_email.save()
+        result = {"code":10000, "msg": "验证码已发送,注意查收"}
+    except:
+        result = {"code": 10001, "msg": "验证码发送失败"}
+
+    return JsonResponse(result)
+
+
+
+
