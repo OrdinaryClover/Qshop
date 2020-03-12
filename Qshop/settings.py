@@ -163,3 +163,25 @@ alipay =AliPay(
     sign_type="RSA2",
     debug=False
 )
+
+
+##celery设置
+import djcelery
+djcelery.setup_loader()
+BROKER_URL = "redis://127.0.0.1:6379/1"  ##指定broker的存储位置，消息中间价   redis中间人
+
+CELERY_IMPORTS = ("CeleryTask.tasks")  ##指定任务文件
+
+CELERY_TIME_ZONE = "Asia/Shanghai" ##时区
+
+CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"##驱动
+
+from celery.schedules import timedelta,crontab
+CELERYBEAT_SCHEDULE = {
+    u"测试01":{
+        "task":"CeleryTask.tasks.Test",        ##定时任务要执行的任务
+        # "schedule":timedelta(seconds=2)          ##每两秒执行一次
+        # "schedule":crontab(hour=2),          ##每小时执行一次
+        "schedule":crontab(minute=2) ,         ##每小时执行一次
+    }
+}

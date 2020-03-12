@@ -25,6 +25,7 @@ def loginValid(func):
         else:
             return HttpResponseRedirect("/seller/login/")
     return inner
+
 ##注册
 import datetime
 def register(request):
@@ -71,10 +72,18 @@ def login(request):
             message = "账号密码不能为空"
 
     return render(request,"seller/login.html",locals())
+
+from CeleryTask.tasks import TaskTest,Myprint
+
 ##主页
 @loginValid
 def index(request):
+    # TaskTest.delay()  ##发布任务
+    # Myprint.delay(10)      ##发布有参数的任务
     return render(request,"seller/index.html",locals())
+
+
+
 ##退出
 def logout(request):
     response = HttpResponseRedirect("/seller/login/")
@@ -226,6 +235,7 @@ def add_label(request):
     return HttpResponse("添加成功")
 
 from sdk.send163 import sendQQ_Email
+from CeleryTask.tasks import send_yibu_163
 def get_code(request):
     result = {"code":10000,"msg":"验证码已发送,注意查收"}
     ##发送验证码
@@ -239,6 +249,7 @@ def get_code(request):
     }
     try:
         # sendQQ_Email(params)
+        # send_yibu_163(params)    ##异步任务
         ##存储到数据库
         user_email.user = "{}".format(email)
         user_email.code = "{}".format(code)
