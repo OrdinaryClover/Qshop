@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'Qshop.middleware01.MiddleWareTest'
 ]
 
 ROOT_URLCONF = 'Qshop.urls'
@@ -182,6 +183,15 @@ CELERYBEAT_SCHEDULE = {
         "task":"CeleryTask.tasks.Test",        ##定时任务要执行的任务
         # "schedule":timedelta(seconds=2)          ##每两秒执行一次
         # "schedule":crontab(hour=2),          ##每小时执行一次
-        "schedule":crontab(minute=2) ,         ##每小时执行一次
+        "schedule":crontab(minute=2),         ##每小时执行一次
+    }
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION':[
+            "127.0.0.0:11211"   ##使用本地的memcache缓存
+        ]
     }
 }

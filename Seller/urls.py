@@ -11,6 +11,7 @@ urlpatterns = [
     path('user_profile/',user_profile),
     path('goods_add/',goods_add),
     path('get_code/',get_code),
+    re_path('middlewaretest/(?P<version>\w+)/',middlewaretest),
     # path('add_label/',add_label),
 
 ]

@@ -74,10 +74,13 @@ def login(request):
     return render(request,"seller/login.html",locals())
 
 from CeleryTask.tasks import TaskTest,Myprint
-
+from django.views.decorators.cache import cache_page
 ##主页
+
+@cache_page(60*5)   #代表生效五分钟
 @loginValid
 def index(request):
+    print("helloword")
     # TaskTest.delay()  ##发布任务
     # Myprint.delay(10)      ##发布有参数的任务
     return render(request,"seller/index.html",locals())
@@ -260,6 +263,15 @@ def get_code(request):
 
     return JsonResponse(result)
 
+
+
+def middlewaretest(request,version):
+    print("view")
+    def test01():
+        return HttpResponse("test")
+    resp = HttpResponse("middlewaretest")
+    resp.render = test01
+    return resp
 
 
 

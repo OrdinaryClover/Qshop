@@ -1,4 +1,5 @@
 {% extends "buyer/base.html" %}
+{% load cache %}
 {% block content %}
     <div class="navbar_con">
 		<div class="navbar">
@@ -38,7 +39,9 @@
 			<a href="#"><img src="/static/buyer/images/adv02.jpg"></a>
 		</div>
 	</div>
+    {% cache 300 goods_cache %}
     {% for one in res %}
+
 	<div class="list_model">
 		<div class="list_title clearfix">
 			<h3 class="fl" id="model0{{ one.type.id }}">{{ one.type.type_label }}</h3>
@@ -65,5 +68,6 @@
 		</div>
 	</div>
     {% endfor %}
+    {% endcache %}
 
 {% endblock %}
