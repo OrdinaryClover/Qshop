@@ -195,7 +195,8 @@ def pay_aliresult(request):
     payorder.order_status = 2
     payorder.save()
 
-    return render(request,"buyer/pay_result.html",locals())
+    # return render(request,"buyer/pay_result.html",locals())
+    return render(request,"buyer/user_center_info.html",locals())
 
 from django.db.models import Sum
 @loginValid
@@ -332,8 +333,46 @@ def user_center_order(request):
     payorder_all = PayOrder.objects.filter(order_user=user).all()
     return render(request,"buyer/user_center_order.html",locals())
 
+##个人中心
+def user_center_info(request):
+    buy_userid = request.COOKIES.get("buy_userid")
+    user = LoginUser.objects.filter(id=buy_userid).first()
+    return render(request,"buyer/user_center_info.html",locals())
 
 
+##收货地址
+def user_center_site(request):
+    ##get请求  获取当前的地址
+    buy_userid = request.COOKIES.get("buy_userid")
+    user = LoginUser.objects.filter(id=buy_userid).first()
+    # useraddress = UserAddress.objects.filter(user=user).first()
+    ##post请求  提交新的地址
+    if request.method == "POST":
+        data = request.POST
+        UserAddress.objects.create(name=data.get("name"),
+                                   address=data.get("address"),
+                                   phone=data.get("phone"),
+                                   user=user),
+    useraddress = UserAddress.objects.filter(user=user).all()
+
+    return render(request,"buyer/user_center_site.html",locals())
+
+###修改默认地址的视图
+def update_useraddress(request):
+    if request.method == "POST":
+        data = request.POST
+        address_id = request.POST.get("address")
+        buy_userid = request.COOKIES.get("buy_userid")
+        user = LoginUser.objects.filter(id=buy_userid).first()
+        print(data)
+        ##修改用户地址的状态
+        ##adddress_id 改为状态为0
+        UserAddress.objects.filter(user=user).update(status=0)
+        ##将修改的地址状态改为1
+        UserAddress.objects.filter(id=address_id).update(status=1)
+    return HttpResponseRedirect("/buyer/user_center_site")
+
+##缓存
 from django.core.cache import cache
 from django.http import HttpResponse
 def get_cachegoods(request):
@@ -353,6 +392,8 @@ def get_cachegoods(request):
         cache.set(goods_id,goods_name,100)
     return HttpResponse(goods_name)
 
+
+##更新缓存数据
 def update_cachegoods(request):
     goods_id = request.GET.get("id")
     goods_name = request.GET.get("goods_name")

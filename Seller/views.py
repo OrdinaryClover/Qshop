@@ -3,6 +3,13 @@ from django.http import  HttpResponseRedirect,JsonResponse
 from .models import *
 import hashlib,random
 from django.core.paginator import Paginator
+
+import logging
+##创建一个收集器
+collect = logging.getLogger("django")
+
+
+
 # Create your views here.
 #加密
 def setPassword(password):
@@ -65,6 +72,10 @@ def login(request):
                 response.set_cookie("seller_email",user.email)
                 response.set_cookie("seller_userid",user.id)
                 request.session["seller_email"] = user.email
+                ####收集日志  XXX成功登录
+                collect.warning("%s 成功登录" %user.email)
+
+
                 return response
             else:
                 message = "账号密码不正确"

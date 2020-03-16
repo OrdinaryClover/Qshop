@@ -50,3 +50,15 @@ class ValidCode(models.Model):
     user = models.CharField(max_length=32,verbose_name="用户账号")
     code = models.CharField(max_length=8,verbose_name="验证码")
     create_time = models.DateTimeField(auto_now=True,verbose_name="验证码创建时间")
+
+
+
+class UserAddress(models.Model):
+    name = models.CharField(max_length=32,verbose_name="收件人姓名")
+    phone = models.CharField(max_length=11,verbose_name="联系电话")
+    address = models.TextField(verbose_name="收货人地址")
+    user = models.ForeignKey(to=LoginUser,on_delete=models.CASCADE)
+    status = models.IntegerField(verbose_name="地址状态",default=0)  ##1为使用中，0为未使用
+
+
+
