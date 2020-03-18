@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'Qshop.middleware01.MiddleWareTest'
+    # 'Qshop.middleware01.MiddleWareTest'
 ]
 
 ROOT_URLCONF = 'Qshop.urls'
@@ -206,18 +206,18 @@ CELERYBEAT_SCHEDULE = {
 }
 
 
-##缓存
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION':[
-            "127.0.0.0:11211"   ##使用本地的memcache缓存
-        ]
-    }
-}
-
-##Django日志配置
-
+# #缓存
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#         'LOCATION':[
+#             "127.0.0.0:11211"   ##使用本地的memcache缓存
+#         ]
+#     }
+# }
+#
+# #Django日志配置
+#
 # LOGGING = {
 #     'version':1,
 #     'disable_exsiting_loggers':True,

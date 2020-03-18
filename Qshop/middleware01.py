@@ -13,7 +13,7 @@ class MiddleWareTest(MiddlewareMixin):
         """
         # print("process_request")
         ##黑名单  不让某些Ip访问服务
-        ip_list = ["10.10.10.10","192.0.2.1"]
+        ip_list = ["",""]
         ##获取访问的ip
         ip = request.META.get("REMOTE_ADDR")
         # print(ip)

@@ -1,5 +1,6 @@
 from django.shortcuts import render,HttpResponse
 from django.http import  HttpResponseRedirect,JsonResponse
+from Buyer.models import *
 from .models import *
 import hashlib,random
 from django.core.paginator import Paginator
@@ -88,12 +89,49 @@ from CeleryTask.tasks import TaskTest,Myprint
 from django.views.decorators.cache import cache_page
 ##主页
 
+import datetime
+from django.db.models import Sum
 @cache_page(60*5)   #代表生效五分钟
 @loginValid
 def index(request):
     print("helloword")
     # TaskTest.delay()  ##发布任务
     # Myprint.delay(10)      ##发布有参数的任务
+
+    ##用户:卖家
+    user_id = request.COOKIES.get("seller_userid")
+    ##获取当月
+    month = datetime.datetime.now().month
+    ##状态：2 3 4 6
+    ##1当月成交额
+    month_sum_money = OrderInfo.objects.filter(
+        store_id=user_id,
+        order__order_status__in=[2,3,4,6],
+        order__order_date__month=month
+    ).aggregate(Sum("goods_total_price")).get("goods_total_price__sum")
+    print(month_sum_money)
+
+    ##2当月成交订单数
+    month_sum_count =PayOrder.objects.filter(
+        order_status__in=[2,3,4,6],
+        order_date__month=month,
+        orderinfo__store_id=user_id
+    ).count()
+    print(month_sum_count)
+
+    ##3销量最高的商品名字
+    # max_goods = OrderInfo.objects.filter(store_id=user_id).aggregate(Sum("goods_count"))
+    max_goods = OrderInfo.objects.filter(store_id=user_id).aggregate(Sum("goods_count"))
+
+
+    ##4当月成交商品的总量
+    month_sum_goods_count =OrderInfo.objects.filter(
+        order__order_status__in=[2,3,4,6],
+        order__order_date__month=month,
+        store_id=user_id
+    ).aggregate(Sum("goods_count"))
+    print(month_sum_goods_count)
+
     return render(request,"seller/index.html",locals())
 
 
@@ -283,6 +321,46 @@ def middlewaretest(request,version):
     resp = HttpResponse("middlewaretest")
     resp.render = test01
     return resp
+
+
+def goods_center_order(request):
+    ##个人订单
+    userid = request.COOKIES.get("seller_userid")
+    status = int(request.GET.get("status"))
+    #获取卖家的订单详情   指定的状态
+    # order_info = OrderInofo.objects.filter(store_id=userid).all()
+    order_info = OrderInofo.objects.filter(store_id=userid,order__order_status=status).all()
+    print(order_info)  ##该用户所有的订单详情
+
+    return render(request,"seller/goods_center_order.html",locals())
+
+
+
+from sdk.payorder_tixingzhifu_email import send163_Email
+def payorder_tixingzhifu(request):
+    result = {"code":10000,"msg":"提醒成功"}
+    ##获取订单
+    payorder_id = request.GET.get("payorder_id")
+    ##发送邮件/短信
+    params = {
+        "subject":"天天生鲜提醒你",
+        "content":"您有订单未支付，喜欢的话就让宝贝回家吧",
+        "recver":"1751541643@qq.com,3237734526@qq.com,805122275@qq.com",
+    }
+    # send163_Email(params)
+    return JsonResponse(result)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -174,6 +174,18 @@ from Qshop.settings import alipay
 def alipay_order(request):
     payorder_id = request.GET.get("payorder_id")
     payorder = PayOrder.objects.get(id = payorder_id)
+    ##保存订单和地址的关系
+    user_id = request.COOKIES.get("buy_userid")
+    ###获取用户当前状态为1即正在使用的地址
+    user_address = UserAddress.objects.filter(user_id=user_id,status=1).first()
+    ##保存关系
+    payorder_address = PayorderAddress.objects.create(name=user_address.name,
+                                                      phone=user_address.phone,
+                                                      address=user_address.address,
+                                                      payorder=payorder
+                                                      )
+
+
     ##实例一个订单
     order_string = alipay.api_alipay_trade_page_pay(
         subject="每日生鲜",  ##主题

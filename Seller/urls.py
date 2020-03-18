@@ -12,6 +12,8 @@ urlpatterns = [
     path('goods_add/',goods_add),
     path('get_code/',get_code),
     re_path('middlewaretest/(?P<version>\w+)/',middlewaretest),
+    path('goods_center_order/',goods_center_order),
+    path('payorder_tixingzhifu/',payorder_tixingzhifu),
     # path('add_label/',add_label),
 
 ]
