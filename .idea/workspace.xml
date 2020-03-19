@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa08aeb4-1864-4e9b-8a85-1e3c87bce012" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Seller/templates/seller/goods_center_order.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sdk/payorder_tixingzhifu_email.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Buyer/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Buyer/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Buyer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Buyer/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Qshop/middleware01.py" beforeDir="false" afterPath="$PROJECT_DIR$/Qshop/middleware01.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Qshop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Qshop/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Seller/templates/seller/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Seller/templates/seller/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Seller/templates/seller/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Seller/templates/seller/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Seller/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Seller/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Seller/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Seller/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +53,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Seller/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="20">
               <caret line="124" selection-start-line="124" selection-end-line="124" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
@@ -75,7 +65,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Buyer/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
+            <state relative-caret-position="440">
               <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -206,9 +196,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="186" />
+    <option name="x" value="185" />
     <option name="y" value="40" />
-    <option name="width" value="1383" />
+    <option name="width" value="1384" />
     <option name="height" value="850" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -216,53 +206,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-              <item name="Buyer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-              <item name="sdk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-              <item name="Seller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-              <item name="Seller" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-              <item name="Seller" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="seller" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -487,7 +431,8 @@
       <workItem from="1584238362284" duration="17981000" />
       <workItem from="1584325411741" duration="21647000" />
       <workItem from="1584416899552" duration="16470000" />
-      <workItem from="1584499968527" duration="1801000" />
+      <workItem from="1584499968527" duration="1846000" />
+      <workItem from="1584580090791" duration="1078000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1583403983388</created>
@@ -559,11 +504,18 @@
       <option name="project" value="LOCAL" />
       <updated>1584369622820</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="完结版">
+      <created>1584520358914</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1584520358915</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280458000" />
+    <option name="totallyTimeSpent" value="281581000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -576,6 +528,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.1888298" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -679,7 +632,8 @@
     <MESSAGE value="3.5完结版" />
     <MESSAGE value="3.6完结版" />
     <MESSAGE value="3.9完结版" />
-    <option name="LAST_COMMIT_MESSAGE" value="3.9完结版" />
+    <MESSAGE value="完结版" />
+    <option name="LAST_COMMIT_MESSAGE" value="完结版" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1042,16 +996,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Seller/templates/seller/index.html">
+    <entry file="file://$PROJECT_DIR$/Seller/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1400">
-          <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+        <state relative-caret-position="20">
+          <caret line="124" selection-start-line="124" selection-end-line="124" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Buyer/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
+        <state relative-caret-position="440">
           <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -1059,13 +1016,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Seller/views.py">
+    <entry file="file://$PROJECT_DIR$/Seller/templates/seller/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1400">
+          <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
         </state>
       </provider>
     </entry>
