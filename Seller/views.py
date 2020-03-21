@@ -104,7 +104,7 @@ def index(request):
     month = datetime.datetime.now().month
     ##状态：2 3 4 6
     ##1当月成交额
-    month_sum_money = OrderInfo.objects.filter(
+    month_sum_money = OrderInofo.objects.filter(
         store_id=user_id,
         order__order_status__in=[2,3,4,6],
         order__order_date__month=month
@@ -121,11 +121,11 @@ def index(request):
 
     ##3销量最高的商品名字
     # max_goods = OrderInfo.objects.filter(store_id=user_id).aggregate(Sum("goods_count"))
-    max_goods = OrderInfo.objects.filter(store_id=user_id).aggregate(Sum("goods_count"))
+    max_goods = OrderInofo.objects.filter(store_id=user_id).aggregate(Sum("goods_count"))
 
 
     ##4当月成交商品的总量
-    month_sum_goods_count =OrderInfo.objects.filter(
+    month_sum_goods_count =OrderInofo.objects.filter(
         order__order_status__in=[2,3,4,6],
         order__order_date__month=month,
         store_id=user_id
